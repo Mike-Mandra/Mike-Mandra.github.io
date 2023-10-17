@@ -11,6 +11,9 @@ div {
   background-color: #000080;
   color: #fff;
   text-shadow: 1px 1px 0 #000;
+  border-radius: 10px;
+  border: 1px solid #000060;
+  
   
 
 }
