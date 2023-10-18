@@ -43,3 +43,12 @@ header, footer {
 }
 
 /* WRITE YOUR CODE BELOW HERE */
+@font-face {
+  font-family: 'SerifFont';
+  src: url('abel-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SansSeriffFont';
+  src: url('abrilfatface-regular-webfont.woff2') format('woff2')
+}
