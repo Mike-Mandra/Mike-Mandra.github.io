@@ -80,6 +80,20 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-a: :focus {
+a:focus {
   outline: none;
+}
+
+ul, ol {
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+li {
+  list-style-type: disc;
+  line-height: inherit;
+}
+
+p {
+  text-indent: 20px;
 }
