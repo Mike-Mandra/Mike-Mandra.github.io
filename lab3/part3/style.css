@@ -53,27 +53,44 @@ header, footer {
   src: url('abrilfatface-regular-webfont.woff2') format('woff2')
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
   font-family: 'SerifFont', serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: 'SansSerifFont', sans-serif;
 }
 
-body {
-  font-size: 10px;
-  line-height: 2.0;
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.6em;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height:  1.6;
 }
 
 h1 {
   text-align: center;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
 }
 
-p {
-  letter-spacing: 1px;
-  word-spacing: 2.5px;
+a:link, a:visited {
+  color: b #424242;
+}
+
+a {
+  text-decoration: underline;
 }
 
 a:hover, a:focus {
@@ -85,15 +102,19 @@ a:focus {
 }
 
 ul, ol {
-  line-height: 1.6;
   margin: 10px 0;
+  list-style-type: disc;
 }
 
 li {
-  list-style-type: disc;
   line-height: inherit;
 }
 
-p {
+h2 + p {
   text-indent: 20px;
+}
+
+a [href^="http"]:after {
+  content: "\2197";
+  margin-left: 5px;
 }
