@@ -52,3 +52,21 @@ header, footer {
   font-family: 'SansSeriffFont';
   src: url('abrilfatface-regular-webfont.woff2') format('woff2')
 }
+
+body {
+  font-family: 'SerifFont', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SansSerifFont', sans-serif;
+}
+
+body {
+  font-size: 10px;
+  line-height: 2.0;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 2.5px;
+}
