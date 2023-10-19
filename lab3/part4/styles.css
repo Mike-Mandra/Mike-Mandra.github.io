@@ -64,4 +64,12 @@ body {
     float: left;
     margin: 0 20px 20px 0;
   }
+
+  article {
+    flex: 2;
+  }
+
+  aside {
+    flex: 1;
+  }
   
