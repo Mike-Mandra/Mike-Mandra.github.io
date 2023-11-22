@@ -1,5 +1,3 @@
-1. COMPLETE VARIABLE AND FUNCTION DEFINITIONS
-
 const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');
@@ -9,7 +7,6 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-2. RAW TEXT STRINGS
 
 let storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day."
 
@@ -29,13 +26,11 @@ let insertz = ["spontaneously combusted",
 "turned into a slug and crawled away"]
 
 
-3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
-
 randomize.addEventListener('click', result);
 
 function result() {
 
-  let newStory = storyText
+  let newStory = storyText;
   let xItem, yItem, zItem;
 
   xItem = randomValueFromArray(insertx);
@@ -44,14 +39,22 @@ function result() {
 
   if(customName.value !== '') {
     const name = customName.value;
+    newStory = newStory.replace(/:insertx:/g, name);
+    newStory = newStory.replace(/Bob/g, name);
 
   }
 
   if(document.getElementById("uk").checked) {
     const weight = Math.round(300);
     const temperature =  Math.round(94);
-
+    
+     newStory = newStory.replace(/94 fahrenheit/g, `${temperature} centigrade`);
+     newStory = newStory.replace(/300 pounds/g, `${weight} stone`);
   }
+
+  newStory = newStory.replace(/:insertx:/g, xItem);
+  newStory = newStory.replace(/:inserty:/g, yItem);
+  newStory = newStory.replace(/:insertz:/g, zItem);
 
   story.textContent = newStory;
   story.style.visibility = 'visible';
