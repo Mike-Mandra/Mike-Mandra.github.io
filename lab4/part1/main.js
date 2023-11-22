@@ -35,6 +35,13 @@ randomize.addEventListener('click', result);
 
 function result() {
 
+  let newStory = storyText
+  let xItem, yItem, zItem;
+
+  xItem = randomValueFromArray(insertx);
+  yItem = randomValueFromArray(inserty);
+  zItem = randomValueFromArray(insertz);
+
   if(customName.value !== '') {
     const name = customName.value;
 
@@ -46,6 +53,6 @@ function result() {
 
   }
 
-  story.textContent = ;
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
