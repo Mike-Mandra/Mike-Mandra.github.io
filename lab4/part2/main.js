@@ -29,6 +29,11 @@ for (counter = 0; counter < images.length; counter++)
 const newImage = document.createElement('img');
 newImage.setAttribute('src', xxx);
 newImage.setAttribute('alt', xxx);
+imgElement.addEventListener('click', function ()
+{displayedImage.src = imgElement.src;
+ displayedImage.alt = imgElement.alt;
+});
+
 thumbBar.appendChild(newImage);
 
 /* Wiring up the Darken/Lighten button */
