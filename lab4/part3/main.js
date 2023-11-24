@@ -42,7 +42,7 @@ class Ball {
   
     this.x += this.velX;
     this.y += this.velY;
-
+  }
     collisionDetect() {
       for (const ball of balls) {
         if (this !== ball) {
@@ -52,7 +52,6 @@ class Ball {
     
           if (distance < this.size + ball.size) {
             ball.color = this.color = randomRGB();
-          }
         }
       }
     }
@@ -100,9 +99,11 @@ function loop() {
   for (const ball of balls) {
     ball.draw();
     ball.update();
+    ball.collisionDetect();
   }
 
   requestAnimationFrame(loop);
-  loop();
-
 }
+
+  requestAnimationFrame(loop);
+  loop();
