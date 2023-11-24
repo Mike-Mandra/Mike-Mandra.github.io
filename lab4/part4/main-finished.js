@@ -31,7 +31,7 @@ class Shape {
 class Ball extends Shape {
 
    constructor(x, y, velX, velY, color, size) {
-      super(x, y, z, velX, velY)
+      super(x, y, velX, velY)
       this.color = color;
       this.size = size;
       this.exists = true;
