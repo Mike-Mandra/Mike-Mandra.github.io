@@ -34,6 +34,7 @@ class Ball extends Shape {
       super(x, y, z, velX, velY)
       this.color = color;
       this.size = size;
+      this.exists = true;
    }
 
    draw() {
@@ -66,20 +67,18 @@ class Ball extends Shape {
 
    collisionDetect() {
       for (const ball of balls) {
-         if (!(this === ball)) {
-            const dx = this.x - ball.x;
-            const dy = this.y - ball.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < this.size + ball.size) {
-              ball.color = this.color = randomRGB();
-            }
-         }
+        if (!(this === ball) && ball.exists) {
+          const dx = this.x - ball.x;
+          const dy = this.y - ball.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+    
+          if (distance < this.size + ball.size) {
+            ball.color = this.color = randomRGB();
+          }
+        }
       }
-   }
-
+    }
 }
-
 const balls = [];
 
 while (balls.length < 25) {
