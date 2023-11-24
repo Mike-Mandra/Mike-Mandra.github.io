@@ -142,6 +142,10 @@ window.addEventListener("keydown", (e) => {
 
 const evilCircle = new EvilCircle(50, 50);
 
+const ballCountParagraph = document.getElementById('ballCount');
+
+let ballCount = 0;
+
 const balls = [];
 
 while (balls.length < 25) {
@@ -156,6 +160,20 @@ while (balls.length < 25) {
       randomRGB(),
       size
    );
+
+   function incrementBallCount() {
+      ballCount++;
+      updateBallCount();
+    }
+    
+    function decrementBallCount() {
+      ballCount--;
+      updateBallCount();
+    }
+    
+    function updateBallCount() {
+      ballCountParagraph.textContent = ballCount;
+    }
 
   balls.push(ball);
 }
