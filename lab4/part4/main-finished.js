@@ -80,6 +80,8 @@ class Ball extends Shape {
     }
    }
 
+
+
 class EvilCircle extends Shape {
    constructor(x, y,) {
      super(x, y, 20, 20);
@@ -104,6 +106,21 @@ class EvilCircle extends Shape {
       }
  
    }
+
+   collisionDetect() {
+      for (const ball of balls) {
+        if (ball.exists && ball != this) {
+          const dx = this.x - ball.x;
+          const dy = this.y - ball.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+    
+          if (distance < this.size + ball.size) {
+            ball.exists = false;
+            ball.color = this.color = randomRGB();
+          }
+        }
+      }
+
    }
 }
 
