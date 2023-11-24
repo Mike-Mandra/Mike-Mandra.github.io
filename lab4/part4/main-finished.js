@@ -46,19 +46,19 @@ class Ball extends Shape {
 
    update() {
       if ((this.x + this.size) >= width) {
-         this.velX = -(Math.abs(this.velX));
+         this.velX = -(this.velX);
       }
 
       if ((this.x - this.size) <= 0) {
-         this.velX = Math.abs(this.velX);
+         this.velX = -(this.velX);
       }
 
       if ((this.y + this.size) >= height) {
-         this.velY = -(Math.abs(this.velY));
+         this.velY = -(this.velY);
       }
 
       if ((this.y - this.size) <= 0) {
-         this.velY = Math.abs(this.velY);
+         this.velY = -(this.velY);
       }
 
       this.x += this.velX;
@@ -97,11 +97,11 @@ class EvilCircle extends Shape {
 
       checkBounds() {
       if ((this.x + this.size) >= width || (this.x - this.size) <=0) {
-         this.x -= this.velX;
+         this.x = -this.velX;
       }
 
       if ((this.y + this.size) >= width || (this.x - this.size) <= 0) {
-         this.y = this.velY;
+         this.y = -this.velY;
       }
  
    }
@@ -116,6 +116,7 @@ class EvilCircle extends Shape {
           if (distance < this.size + ball.size) {
             ball.exists = false;
             ball.color = this.color = randomRGB();
+            decrementBallCount()
           }
         }
       }
@@ -146,6 +147,20 @@ const ballCountParagraph = document.getElementById('ballCount');
 
 let ballCount = 0;
 
+function incrementBallCount() {
+   ballCount++;
+   updateBallCount();
+ }
+ 
+ function decrementBallCount() {
+   ballCount--;
+   updateBallCount();
+ }
+ 
+ function updateBallCount() {
+   ballCountParagraph.textContent = ballCount;
+ }
+
 const balls = [];
 
 while (balls.length < 25) {
@@ -161,21 +176,8 @@ while (balls.length < 25) {
       size
    );
 
-   function incrementBallCount() {
-      ballCount++;
-      updateBallCount();
-    }
-    
-    function decrementBallCount() {
-      ballCount--;
-      updateBallCount();
-    }
-    
-    function updateBallCount() {
-      ballCountParagraph.textContent = ballCount;
-    }
-
   balls.push(ball);
+  incrementBallCount();
 }
 
 function loop() {
