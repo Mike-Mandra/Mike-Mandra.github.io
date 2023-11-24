@@ -80,8 +80,7 @@ class Ball extends Shape {
     }
    }
 
-
-
+ 
 class EvilCircle extends Shape {
    constructor(x, y,) {
      super(x, y, 20, 20);
@@ -141,6 +140,8 @@ window.addEventListener("keydown", (e) => {
    }
  });
 
+const evilCircle = new EvilCircle(50, 50);
+
 const balls = [];
 
 while (balls.length < 25) {
@@ -163,10 +164,16 @@ function loop() {
    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
    ctx.fillRect(0, 0,  width, height);
 
+   evilCircle.draw();
+   evilCircle.checkBounds();
+   evilCircle.collisionDetect();
+
    for (const ball of balls) {
+   if (ball.exists) {
      ball.draw();
      ball.update();
      ball.collisionDetect();
+   }
    }
 
    requestAnimationFrame(loop);
